@@ -1,12 +1,12 @@
 package com.example.noticeboard;
 
-public class NoticeTitle {
+public class NoticeData {
 
     private String  title       = "";
     private String  titleWriter = "";
     private int     titleNumber = 0;
 
-    NoticeTitle(int getTitleNumber, String getTitle, String getTitleWriter) {
+    NoticeData(int getTitleNumber, String getTitle, String getTitleWriter) {
         this.titleNumber    = getTitleNumber;
         this.title          = getTitle;
         this.titleWriter    = getTitleWriter;
