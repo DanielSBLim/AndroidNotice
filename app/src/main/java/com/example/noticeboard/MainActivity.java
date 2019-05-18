@@ -18,9 +18,14 @@ public class MainActivity extends AppCompatActivity {
         */
 
         super.onCreate(savedInstanceState);
-        ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            list.add(String.format("TEXT %d", i));
+
+        //메인 레이아웃 출력
+        setContentView(R.layout.content_main);
+
+        //뷰홀더 갯수
+        ArrayList<NoticeData> list = new ArrayList<>();
+        for (int i = 0; i <= 100; i++) {
+            list.add(new NoticeData(i ,"시작","임성범"));
         }
 
         // 리사이클러뷰에 LinearLayoutManager 객체 지정.

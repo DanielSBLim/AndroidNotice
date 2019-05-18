@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.ViewHolder> {
 
-    private ArrayList<String> mData = null ;
+    private ArrayList<NoticeData> mData;
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -26,8 +26,8 @@ public class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.Vi
     }
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
-    SimpleTextAdapter(ArrayList<String> list) {
-        mData = list ;
+    SimpleTextAdapter(ArrayList<NoticeData> getNoticeData) {
+        mData = getNoticeData ;
     }
 
     // onCreateViewHolder() - 아이템 뷰를 위한 뷰홀더 객체 생성하여 리턴.
@@ -42,11 +42,20 @@ public class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.Vi
         return vh ;
     }
 
-    // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
+    // onBindViewHolder () - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
     public void onBindViewHolder(SimpleTextAdapter.ViewHolder holder, int position) {
-        String text = mData.get(position) ;
-        holder.textView1.setText(text) ;
+
+        int number = mData.get(position).getTitleNumber();
+        String title = mData.get(position).getTitle();
+        String titleWriter = mData.get(position).getWriter();
+
+
+        /*
+         *   1. 뷰홀더에 포시될내역
+         *   2. 숫자만 하는 경우 String이아닌 int로 인식 되어 문제가 발생한다.
+         */
+        holder.textView1.setText(number + title + titleWriter);
     }
 
     // getItemCount() - 전체 데이터 갯수 리턴.

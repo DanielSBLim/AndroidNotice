@@ -12,6 +12,17 @@ public class NoticeData {
         this.titleWriter    = getTitleWriter;
     }
 
+    public String getTitle() {
+        return title;
+    }
+    public String getWriter() {
+        return titleWriter;
+    }
+    public int getTitleNumber() {
+        return titleNumber;
+    }
+
+
 }
 
 //        [형서기] [오후 11:00] 클래스하나만들어서
