@@ -16,12 +16,15 @@ public class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.Vi
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView1 ;
+        TextView textView2 ;
 
         ViewHolder(View itemView) {
             super(itemView) ;
 
             // 뷰 객체에 대한 참조. (hold strong reference)
             textView1 = itemView.findViewById(R.id.text1) ;
+            textView2 = itemView.findViewById(R.id.text2) ;
+
         }
     }
 
@@ -56,6 +59,8 @@ public class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.Vi
          *   2. 숫자만 하는 경우 String이아닌 int로 인식 되어 문제가 발생한다.
          */
         holder.textView1.setText(number + title + titleWriter);
+        holder.textView2.setText("이것은 게시판의 내용이요");
+
     }
 
     // getItemCount() - 전체 데이터 갯수 리턴.
