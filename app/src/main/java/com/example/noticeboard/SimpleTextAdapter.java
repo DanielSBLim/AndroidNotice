@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.ViewHolder> {
 
     private ArrayList<NoticeData> mData;
+    private Context mContext;
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -24,14 +26,24 @@ public class SimpleTextAdapter extends RecyclerView.Adapter<SimpleTextAdapter.Vi
             // 뷰 객체에 대한 참조. (hold strong reference)
             textView1 = itemView.findViewById(R.id.text1) ;
             textView2 = itemView.findViewById(R.id.text2) ;
+            itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                Toast.makeText(mContext, "마 자신있나?", Toast.LENGTH_LONG).show();
+                        }
+                    }
+            );
 
         }
     }
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
-    SimpleTextAdapter(ArrayList<NoticeData> getNoticeData) {
+    SimpleTextAdapter(Context context, ArrayList<NoticeData> getNoticeData) {
         mData = getNoticeData ;
+        mContext = context;
     }
+
+
 
     // onCreateViewHolder() - 아이템 뷰를 위한 뷰홀더 객체 생성하여 리턴.
     @Override

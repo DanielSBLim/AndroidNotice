@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // 리사이클러뷰에 SimpleTextAdapter 객체 지정.
-        SimpleTextAdapter adapter = new SimpleTextAdapter(list);
+        SimpleTextAdapter adapter = new SimpleTextAdapter(this,list);
         recyclerView.setAdapter(adapter);
     }
 }
